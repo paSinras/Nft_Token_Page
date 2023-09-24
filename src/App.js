@@ -1,23 +1,37 @@
 import logo from './logo.svg';
 import './App.css';
+import Header from './Header'
+import CollectionCard from './CollectionCard';
+import PunkList from './PunkList';
+import importFile from './importFile';
+import Main from './Main';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+
 
 function App() {
+const [punkListData,setPunkListData]= useState([])
+const [selectedPunk,setSelectedPunk]= useState(0);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+         <Header />
+    {
+      punkListData.lenght>0 &&(
+        <>
+       
+         </>
+      )
+    }
+    
+     <Main punkListData={punkListData} selectedPunk={selectedPunk}/>
+    
+    <PunkList punkListData={punkListData} setSelectedPunk={setSelectedPunk}/>
+   
+
+   
+  
+
     </div>
   );
 }
